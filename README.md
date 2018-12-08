@@ -6,6 +6,46 @@
 * [**Download** whole project before lessons](https://www.dropbox.com/sh/12cev4z4q9ankwj/AADR77HGAAtIbtpO3jgNInfKa?dl=0)
 * [Youtube Video for review](https://www.youtube.com/playlist?list=PLK0n8HKZQ_VfJcqBGlcAc0IKoY00mdF1B)
 
+# New Design of the course
+1. 本門課專門為想從事資料新聞實作的學生所設計，故R語言教學不包含進階內容如回歸、主成分分析、SVM等機器學習內容。
+2. 課程中安排有期中考確實驗收學生實作能力。
+3. 課程報導議題將鎖定在2018年鄉鎮市長選舉、PM2.5的歷史發展與591租屋網與實價登錄的不均問題，如果對這三項議題不感興趣者，尤其是外系同學，請勿選修。
+4. 課程報導需包含有訪談內容以驗證實作成果。
+5. 課程亦考驗學生程式的應用能力：學生需要自行涉獵一個套件或分析案例（Datacamp, Online cases, or packages）以顯示其有能力在課後持續發展。
+
+
+## Calendar
+1. Google sheet: week 1
+2. Midterm * 1
+3. Case sharing: 2 times, 1.5 hours. week 3 
+4. My case sharing: 1.5 hours around week 9 or 10.
+
+
+
+| Week| Date| Toipic| Activities|
+| --- | --- | --- | --- |
+| W01 | 0218 | Course overview| |
+| W02 | 0225 | Using google sheet to process data: ubike and paid maternity leave| AS#1 |
+| W03 | 0304 | R Basic: Reading CSV: paid maternity leave| AS#2: Sharing good data jouranlism cases|
+| W04 | 0311 | R Reading hierarchical data: json and xml| AS#3 | |
+| W05 | 0318 | R Scraping web data: rent591| AS#4 |
+| W06 | 0325 | R Text processing and trump's tweets| AS#5|
+| W07 | 0401 | R Scraping web data and parsing HTML files| AS#6: Scrpaing PTT Forums|
+| W08 | 0408 | Sharing Data-driven news report by group ||
+| W09 | 0415 | R Chinese text processing: Tokenization and collocation| AS#7 |
+| W10 | 0422 | Midterm | AS#8 |
+| W11 | 0429 | Tableau| AS#9 |
+| W12 | 0506 | Proposal||
+| W13 | 0513 | Tableau| AS#11 (Submit proposal 2)|
+| W14 | 0520 | Proposal: Group Meeting| AS#12 |
+| W15 | 0526 | Tableau| |
+| W16 | 0603 | Tableau| |
+| W17 | 0610 | Topic modeling | |
+| W18 | 0617 | Final presentation | Submit final project |
+
+
+
+
 ## Announcement
 ```
 Sys.setlocale(category = "LC_ALL", locale = "UTF-8")
@@ -116,29 +156,6 @@ Sys.setlocale(category = "LC_ALL", locale = "cht") # for win
 * http://www.rdatamining.com/
 * [Learning R in Y minutes](https://learnxinyminutes.com/docs/r/)
 * [Datacamp for R](https://www.datacamp.com/courses/tech:r)
-
-## Calendar
-
-| Week| Date| Toipic| Activities|
-| --- | --- | --- | --- |
-| W01 | 0218 | Course overview| |
-| W02 | 0225 | Using google sheet to process data: ubike and paid maternity leave| AS#1 |
-| W03 | 0304 | R Basic: Reading CSV: paid maternity leave| AS#2: Sharing good data jouranlism cases|
-| W04 | 0311 | R Reading hierarchical data: json and xml| AS#3 | |
-| W05 | 0318 | R Scraping web data: rent591| AS#4 |
-| W06 | 0325 | R Text processing and trump's tweets| AS#5|
-| W07 | 0401 | R Scraping web data and parsing HTML files| AS#6: Scrpaing PTT Forums|
-| W08 | 0408 | Sharing Data-driven news report by group ||
-| W09 | 0415 | R Chinese text processing: Tokenization and collocation| AS#7 |
-| W10 | 0422 | Midterm | AS#8 |
-| W11 | 0429 | Tableau| AS#9 |
-| W12 | 0506 | Proposal||
-| W13 | 0513 | Tableau| AS#11 (Submit proposal 2)|
-| W14 | 0520 | Tableau| AS#12 |
-| W15 | 0526 | Tableau| |
-| W16 | 0603 | Tableau| |
-| W17 | 0610 | Topic modeling | |
-| W18 | 0617 | Final presentation | Submit final project |
 
 ## Mid-Digital-News Project
 
