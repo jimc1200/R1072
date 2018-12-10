@@ -19,6 +19,7 @@
 2. Midterm * 1
 3. Case sharing: 2 times, 1.5 hours. week 3 
 4. My case sharing: 1.5 hours around week 9 or 10.
+5. Wen for data visualization with GIS
 
 
 
