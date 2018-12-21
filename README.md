@@ -34,7 +34,7 @@
 | W07 | 0401 | R Scraping web data and parsing HTML files| AS#6: Scrpaing PTT Forums|
 | W08 | 0408 | Sharing Data-driven news report by group ||
 | W09 | 0415 | R Chinese text processing: Tokenization and collocation| AS#7 |
-| W10 | 0422 | Midterm | AS#8 |
+| W10 | 0422 | Midterm ([sample](https://github.com/P4CSS/Assignments/blob/master/RQUIZ.md)) | AS#8 |
 | W11 | 0429 | Tableau| AS#9 |
 | W12 | 0506 | Proposal||
 | W13 | 0513 | Tableau| AS#11 (Submit proposal 2)|
