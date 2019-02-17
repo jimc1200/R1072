@@ -42,8 +42,8 @@
 | W10  | 0422 | R Visualization: Using ggplot2                        | Proposal             |
 | W11  | 0429 | Midterm [Sample](https://docs.google.com/document/d/1yfiup5vOpzjW6cqhNcavAH0TPmQ9LEPY9fth8wwuzXE/edit?usp=sharing)                                      |                      |
 | W12  | 0506 | R Text processing on Trump’s tweets                   | AS #9                |
-| W13  | 0513 | Chinese text processing: Tokenization and collocation | 補考                   |
-| W14  | 0520 | R Network Visualization                               | 退選截止                 |
+| W13  | 0513 | Chinese text processing: Tokenization and collocation | 補考                  |
+| W14  | 0520 | R Network Visualization                               | 05/17退選截止 .       |
 | W15  | 0526 | Tableau                                               | AS #10               |
 | W16  | 0603 | Tableau                                               |                      |
 | W17  | 0610 | Final presentation                                    |                      |
