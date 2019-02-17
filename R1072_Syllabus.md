@@ -31,9 +31,9 @@
 | Week | Date | Toipic                                                | Activities           |
 | ---- | ---- | ----------------------------------------------------- | -------------------- |
 | W01  | 0218 | Course overview                                       | Team-up              |
-| W02  | 0225 | Google spreadsheet                                    | AS#1, Group report 1 |
+| W02  | 0225 | Google spreadsheet                                    | AS#1                 |
 | W03  | 0304 | R Basic: Reading CSV: paid maternity leave            | AS#2, Group report 1 |
-| W04  | 0311 | R Reading hierarchical data: json and xml             | AS#3                 |
+| W04  | 0311 | R Reading hierarchical data: json and xml             | AS#3, Group report 1 |
 | W05  | 0318 | R Scraping web data: rent591                          | AS#4                 |
 | W06  | 0325 | [Invited Speech] Geography and Data Science           |                      |
 | W07  | 0401 | R Scraping web data                                   | AS#6                 |
