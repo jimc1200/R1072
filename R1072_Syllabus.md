@@ -40,7 +40,7 @@
 | W08  | 0408 | R Data manipulation: Using dplyr                      | AS#7                 |
 | W09  | 0415 | R Data summarization: Using dplyr                     | AS#8, Group report 2 |
 | W10  | 0422 | R Visualization: Using ggplot2                        | Proposal             |
-| W11  | 0429 | Midterm [Sample]                                      |                      |
+| W11  | 0429 | Midterm [Sample](https://docs.google.com/document/d/1yfiup5vOpzjW6cqhNcavAH0TPmQ9LEPY9fth8wwuzXE/edit?usp=sharing)                                      |                      |
 | W12  | 0506 | R Text processing on Trump’s tweets                   | AS #9                |
 | W13  | 0513 | Chinese text processing: Tokenization and collocation | 補考                   |
 | W14  | 0520 | R Network Visualization                               | 退選截止                 |
