@@ -163,6 +163,7 @@ Sys.setlocale(category = "LC_ALL", locale = "cht") # for win
 * [Learning R in Y minutes](https://learnxinyminutes.com/docs/r/)
 * [Datacamp for R](https://www.datacamp.com/courses/tech:r)
 
+
 ## Mid-Digital-News Project
 
 - 以政府開放資料或利用網路爬蟲爬取相關資料作為分析對象，並以R語言分析與視覺化。採分組進行，所有組員均應參與報告。
