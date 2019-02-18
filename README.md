@@ -1,4 +1,4 @@
-# R1072 
+# https://github.com/P4CSS/R1072 
 * [R1072 Syllabus](R1072_Syllabus.md)
 * [R1072 Group Reports and team members](https://paper.dropbox.com/doc/R1072-Group-Reports--AXvyCgGTcL5T1NODoHGmqNwMAg-nm06vnUBbKXdiJQZHRKhW)
 * [R1072 Case studies](https://paper.dropbox.com/doc/R1072-Readings--AXvcyB39NbHt0TsoMQ3Uw7~fAg-GE6FqWbMQlTUDITISdaU5)
