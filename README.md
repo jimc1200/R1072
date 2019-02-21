@@ -6,6 +6,9 @@
 
 
 # Rundown
+## 0225
+* [Using google sheet to do data analysis](https://docs.google.com/document/d/1rZFQ7PTx9sJ9GRia6sYkVWJszzgtFK1liC6XzwevuuU/edit?usp=sharing)
+
 ## 0218
 * **Teamp-up** Key-in your team member here [R1072 Group Reports and team members](https://paper.dropbox.com/doc/R1072-Group-Reports--AXvyCgGTcL5T1NODoHGmqNwMAg-nm06vnUBbKXdiJQZHRKhW)
 * **Group Report 1** See [R1072 Case studies](https://paper.dropbox.com/doc/R1072-Readings--AXvcyB39NbHt0TsoMQ3Uw7~fAg-GE6FqWbMQlTUDITISdaU5) to discover interested topics. Paste your slide link to [R1072 Group Reports and team members](https://paper.dropbox.com/doc/R1072-Group-Reports--AXvyCgGTcL5T1NODoHGmqNwMAg-nm06vnUBbKXdiJQZHRKhW) (No later than 03/03 23:59)
