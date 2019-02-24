@@ -9,7 +9,7 @@
 ## 0225
 * [Using google sheet to do data analysis](https://docs.google.com/document/d/1rZFQ7PTx9sJ9GRia6sYkVWJszzgtFK1liC6XzwevuuU/edit?usp=sharing)
 * [Using google sheet to do data analysis(Paper.dropbox.com)](https://paper.dropbox.com/doc/R1072-Google-sheets--AYK5GUwXHddXnu7o6k_Pvpy0AQ-JyHWP58aK9qNk6cqJrm1L)
-* After creating a new project, download [R01_1_loading data.Rmd](R01_1 loading data.Rmd) and [R01_2_vector.Rmd](R01_2 vector.Rmd), then drag into your project folder.
+* After creating a new project, download **R01_1 loading data.Rmd** and **R01_2 vector.Rmd**, then drag into your project folder.
 
 ## 0218
 * **Teamp-up** Key-in your team member here [R1072 Group Reports and team members](https://paper.dropbox.com/doc/R1072-Group-Reports--AXvyCgGTcL5T1NODoHGmqNwMAg-nm06vnUBbKXdiJQZHRKhW)
