@@ -6,6 +6,11 @@
 
 
 # Rundown
+## 0304
+* [Slide R01 basic](https://docs.google.com/presentation/d/1gvWK2qDZuwR7lRrCLfVwfzrMBt1Dw2yFcG8LeoNgLrA/edit?usp=sharing)
+* [Slide R01 read_csv](https://docs.google.com/presentation/d/1vzJL2YU-kWKeM66bLxRFrdXLleWC_mbRFhXi-xkDuqM/edit?usp=sharing)
+
+
 ## 0225
 * [Using google sheet to do data analysis](https://docs.google.com/document/d/1rZFQ7PTx9sJ9GRia6sYkVWJszzgtFK1liC6XzwevuuU/edit?usp=sharing)
 * [Using google sheet to do data analysis(Paper.dropbox.com)](https://paper.dropbox.com/doc/R1072-Google-sheets--AYK5GUwXHddXnu7o6k_Pvpy0AQ-JyHWP58aK9qNk6cqJrm1L)
