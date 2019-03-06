@@ -3,6 +3,7 @@
 * [R1072 Group Reports and team members](https://paper.dropbox.com/doc/R1072-Group-Reports--AXvyCgGTcL5T1NODoHGmqNwMAg-nm06vnUBbKXdiJQZHRKhW)
 * [R1072 Case studies](https://paper.dropbox.com/doc/R1072-Readings--AXvcyB39NbHt0TsoMQ3Uw7~fAg-GE6FqWbMQlTUDITISdaU5)
 * [R1072 Q&A](https://paper.dropbox.com/doc/R1072-QA--AXu~MLhqdA~eZs_aYA67wHWuAg-ldpdmVWiEDBLKyfCTIIhQ): if you encounter any problems or any questions, please describe them here. Or, you can comment others.
+* [All R video for review](https://www.youtube.com/playlist?list=PLK0n8HKZQ_VfJcqBGlcAc0IKoY00mdF1B)
 
 
 # Rundown
