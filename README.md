@@ -8,7 +8,8 @@
 
 # Rundown
 ## 0311
-* [Slide R01 read_csv](https://docs.google.com/presentation/d/1vzJL2YU-kWKeM66bLxRFrdXLleWC_mbRFhXi-xkDuqM/edit?usp=sharing)
+* [Slide R02 data.frame_MaternalLeave_read_xlsx](https://docs.google.com/presentation/d/1evDPBwA9UJ2ubhwiQWK0XYZiaCzUWLKIeRftwMPd-EI/edit?usp=sharing)
+* [Slide R02 read_csv](https://docs.google.com/presentation/d/1vzJL2YU-kWKeM66bLxRFrdXLleWC_mbRFhXi-xkDuqM/edit?usp=sharing)
 * [Slide R03 read_json](https://docs.google.com/presentation/d/15k3cEw3ogBP5Cg5k5RZb0s4kVqoTDKuYJ67OUO043P4/edit?usp=sharing)
 
 ## 0304
