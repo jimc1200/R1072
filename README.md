@@ -7,9 +7,12 @@
 
 
 # Rundown
+## 0311
+* [Slide R01 read_csv](https://docs.google.com/presentation/d/1vzJL2YU-kWKeM66bLxRFrdXLleWC_mbRFhXi-xkDuqM/edit?usp=sharing)
+* [Slide R03 read_json](https://docs.google.com/presentation/d/15k3cEw3ogBP5Cg5k5RZb0s4kVqoTDKuYJ67OUO043P4/edit?usp=sharing)
+
 ## 0304
 * [Slide R01 basic](https://docs.google.com/presentation/d/1gvWK2qDZuwR7lRrCLfVwfzrMBt1Dw2yFcG8LeoNgLrA/edit?usp=sharing)
-* [Slide R01 read_csv](https://docs.google.com/presentation/d/1vzJL2YU-kWKeM66bLxRFrdXLleWC_mbRFhXi-xkDuqM/edit?usp=sharing)
 * **Group Report 1** See [R1072 Case studies](https://paper.dropbox.com/doc/R1072-Readings--AXvcyB39NbHt0TsoMQ3Uw7~fAg-GE6FqWbMQlTUDITISdaU5) to discover interested topics. Paste your slide link to [R1072 Group Reports and team members](https://paper.dropbox.com/doc/R1072-Group-Reports--AXvyCgGTcL5T1NODoHGmqNwMAg-nm06vnUBbKXdiJQZHRKhW) (No later than 03/03 23:59)
 * **Assignment #2** See [Collecting data and Previewing paid maternal leave](https://github.com/P4CSS/Assignments/blob/master/02_CollectingData.md)
   * [Video: Introduction to Paid Maternal Leave](https://www.youtube.com/watch?v=dZE2xsqYQqY)
