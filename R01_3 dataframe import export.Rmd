@@ -33,15 +33,6 @@ df <- data.frame(income, county, population)
 ```
 
 
-## Inspect the data.frame
-* Using 
-```{r}
-
-```
-
-
-
-
 # 進出口貿易資料範例
 
 * [台灣出口進口貿易資料查詢](https://cus93.trade.gov.tw/FSC3040F/FSC3040F)
@@ -57,14 +48,6 @@ export <- c(22.987, 12.204, 11.837, 7.739, 5.381, 4.610, 2.866, 2.784, 2.414, 2.
 ```
 
 
-
-* 甚至也可以建立一個新的、空的`data.frame`。
-* `df.test`就R的用法就是一個變數，並不是`df`和`test`各自是一個變數。
-
-```{r}
-df.test <- data.frame()
-```
-
 * 合併vector為data.frame
 
 * 這時候我們若以`str(df)`觀察該`df`的結構會發現，文字型態的資料被轉為`Factors`，這是我們所不樂見的。過去統計通常會把文字型態當成類別變數，於是用`Factors`作為資料型態，但資料科學中經常要處理大量的文字資料，此時，我們可以把`read.csv`的一個參數`stringsAsFactors`設為`FALSE`，意味著預設不要將文字的資料轉為Factor而是直接以文字變項來處理。* `stringsAsFactors = FALSE`也是`read.csv()`的參數（parameter、argument）。因為一般讀檔會預設把文字讀為類別變項也就是Factor，但資料分析經常要處理文字資料而不是類別變項，所以會希望預設不要把文字讀取為類別變項，因此要設定`stringsAsFactors = FALSE`。
@@ -74,8 +57,17 @@ df.test <- data.frame()
 
 ```{r}
 df <- data.frame(country, import, export)
+str(df)
 df <- data.frame(country, import, export, stringsAsFactors = FALSE)
 str(df)
+```
+
+
+* 甚至也可以建立一個新的、空的`data.frame`。
+* `df.test`就R的用法就是一個變數，並不是`df`和`test`各自是一個變數。
+
+```{r}
+df.test <- data.frame()
 ```
 
 
@@ -128,6 +120,7 @@ names(df)
 head(df$發生.現.地點)
 head(df$發生時段)
 length(df$發生時段)
+summary(df)
 ```
 
 
@@ -190,7 +183,8 @@ df.sorted <- df[order(df$import, decreasing = T),]
 
 # add - to column in order() can sort in decreasing order
 df.sorted <- df[order(-df$import),]
-# View(df.sorted)
+
+head(df.sorted)
 ```
 
 
@@ -226,3 +220,14 @@ lines(1:25, 1:25, col='red')
 
 ?plot
 ```
+
+# More: using dplyr
+```{r}
+library(dplyr)
+df <- data.frame(country, import, export, stringsAsFactors = F)
+df <- mutate(df, sub = import - export)
+filter(df, import > export)
+select(df, c(1, 3))
+
+```
+

@@ -1,0 +1,42 @@
+---
+title: "RPractice_Ans"
+author: "Jilung Hsieh"
+date: "2019/3/10"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Paid Maternal Leave -> selecting and filtering data using dplyr
+```{r}
+library(dplyr)
+ldata <- read_excel("data/WORLD-MACHE_Gender_6.8.15.xls", "Sheet1", col_names=T)
+
+matleave <- select(ldata, c(3, 6:24))
+
+# select all NA cells and assign 0 to them
+# matleave[is.na(matleave)] <- 0
+matleave <- replace(matleave, is.na(matleave), 0)
+# matleave <- replace_na(matleave, 0) # cannot achieve our goal easily
+
+# filter rows by condition
+# m5 <- matleave[matleave$'matleave_13' == 5, ]
+m5 <- filter(matleave, matleave_13 == 5)
+
+# filter rows by condition
+# m55<- m5[m5$'matleave_95' == 5,]
+m55 <- filter(m5, matleave_95 == 5)
+
+
+# plot
+par(mfrow=c(4,6), mai= c(0.2, 0.2, 0.2, 0.2))
+for (i in c(1:nrow(m55))){
+	barplot(unlist(m55[i,-1]),
+			border=NA, space=0,xaxt="n", yaxt="n", ylim = c(0,5))
+	title(m55[i,1], line = -4, cex.main=3)
+}
+
+```
+
