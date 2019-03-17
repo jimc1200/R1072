@@ -279,7 +279,7 @@ for (i in 1:nrow(m55)){
 
 
 
-# (Practice I)
+# Practice02_1_1 Plotting more
 ```{r}
 # plotting matleave_95 != 5 but matleve_13 == 5
 
@@ -289,7 +289,7 @@ for (i in 1:nrow(m55)){
 
 
 
-# (Practice II) selecting and filtering by dplyr I
+# Practice02_2_2 selecting and filtering by dplyr I
 ```{r}
 ldata <- read_excel("data/WORLD-MACHE_Gender_6.8.15.xls", "Sheet1", col_names=T)
 
