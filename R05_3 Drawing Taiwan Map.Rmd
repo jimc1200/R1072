@@ -1,0 +1,71 @@
+---
+title: "R Notebook"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+
+http://www.rpubs.com/OzuShi/348822
+
+```{r}
+options(stringsAsFactors = F)
+
+```
+
+
+```{r}
+df <- read.csv("data/population.csv", header = T)
+names(df) <- c("cname", "cat", "population")
+```
+
+
+```{r}
+library(maptools)
+taiwan_shp <- readShapeSpatial("data/gadm36_TWN_shp/gadm36_TWN_2.shp")
+```
+```{r}
+library(ggplot2)
+taiwan_map <- fortify(taiwan_shp)
+```
+
+```{r}
+ggplot(taiwan_map, aes(x = long, y = lat, group=group)) +
+  geom_path() + 
+  coord_map()
+
+
+?? coord_map
+```
+```{r}
+library(RColorBrewer)
+library(dplyr)
+taiwan_shp$NL_NAME_2
+# [1] 金門縣   馬祖列島 高雄市   新北市   台中     台南     台北市   彰化縣  
+#  [9] 嘉義市   嘉義縣   新竹市   新竹縣   花蓮縣   基隆市   苗栗縣   南投縣  
+# [17] 澎湖縣   屏東縣   台東縣   桃園市   宜蘭縣   雲林縣
+
+cname = c("金門縣", "連江縣", "高雄市", "新北市", "臺中市", "臺南市",
+          "臺北市", "彰化縣", "嘉義市", "嘉義縣", "新竹市", "新竹縣", 
+          "花蓮縣", "基隆市", "苗栗縣", "南投縣", "澎湖縣", "屏東縣", 
+          "臺東縣", "桃園市", "宜蘭縣", "雲林縣")  
+
+df$cname
+#  [1] "新北市" "臺中市" "高雄市" "臺北市" "桃園市" "臺南市" "彰化縣" "屏東縣"
+#  [9] "雲林縣" "新竹縣" "苗栗縣" "嘉義縣" "南投縣" "宜蘭縣" "新竹市" "基隆市"
+# [17] "花蓮縣" "嘉義市" "臺東縣" "金門縣" "澎湖縣" "連江縣"
+id2name <- data.frame(cname, id=as.character(0:21))
+
+toplot <- taiwan_map %>%
+    left_join(id2name, by="id") %>%
+    left_join(df, by="cname")
+```
+
+
+```{r}
+ggplot() + 
+    geom_polygon(data = toplot, aes(x = long, y = lat, group = group, fill = population/10000), color = "black", size = 0.25) + 
+    coord_map() + 
+    scale_fill_gradientn(colours = brewer.pal(9,"Reds"), name = "人口(萬)")
+```
+

@@ -1,0 +1,54 @@
+---
+title: "R Notebook"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+
+# Case: World Income Map
+
+## Loading data
+```{r}
+idata <- read.csv("data/WID_Data_Metadata/WID_Data_21022019-105611.csv", sep = ";", skip = 8, header = F) %>%
+    select(1,3) %>%
+    rename(country = V1, income = V3)
+
+idata$country <- trimws(idata$country)
+
+
+metadata <- read.csv2("data/WID_Data_Metadata/WID_Metadata_21022019-105611.csv", header = T, sep = ";", skip = 1) %>%
+    select(1, 2) %>%
+    rename(iso2 = Country.Code, country = Country.Name) %>%
+    filter(nchar(iso2) == 2) %>%
+    filter(nchar(country) > 0) %>%
+    filter(!duplicated(.))
+
+ndata <- idata %>%
+    left_join(metadata) %>%
+    na.omit()
+
+```
+
+
+
+## Merge data
+```{r}
+
+myMap <- joinCountryData2Map(ndata, joinCode = "ISO2", nameJoinColumn = "iso2")
+```
+
+
+
+## Drawing income map
+
+```{r}
+?mapCountryData
+mapCountryData(myMap
+               , nameColumnToPlot="income"
+               , catMethod = "quantiles"
+)
+```
+
+
+

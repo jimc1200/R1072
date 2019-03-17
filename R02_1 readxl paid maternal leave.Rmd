@@ -253,8 +253,6 @@ for(i in 1:10){
 
 
 
-
-
 ## 5.6 Plotting m55
 ```{r}
 nrow(m55)
@@ -265,6 +263,8 @@ for (i in 1:nrow(m55)){
 }
 
 ```
+
+
 
 ## 5.7 Adding title to each sub-plot
 ```{r}
@@ -312,135 +312,6 @@ for (i in c(1:nrow(m55))){
 			border=NA, space=0,xaxt="n", yaxt="n", ylim = c(0,5))
 	title(m55[i,1], line = -4, cex.main=3)
 }
-```
-
-
-
-
-# Drawing worldmap
-
-```{r}
-# install.packages("rworldmap")
-library(rworldmap)# drawing worldmap
-
-# select cols
-mdata <- ldata[,c(3, 6:24)]
-
-# join your data with the world map data
-myMap <- joinCountryData2Map(mdata, joinCode = "ISO3", nameJoinColumn = "iso3")
-# 196 codes from your data successfully matched countries in the map
-# 1 codes from your data failed to match with a country code in the map
-# 47 codes from the map weren't represented in your data
-
-myMap$matleave_13
-
-
-# Draw world maps
-dev.off()
-mapCountryData(myMap
-               , nameColumnToPlot="matleave_13"
-               , catMethod = "categorical"
-)
-
-
-# self-defined colors
-colors <- c("#FF8000", "#A9D0F5", "#58ACFA", "#0080FF", "#084B8A")
-mapCountryData(myMap
-			   , nameColumnToPlot="matleave_13"
-			   , catMethod = "categorical"
-			   , colourPalette = colors
-			   , addLegend="FALSE"
-)
-
-```
-
-
-
-
-# (Practice)
-
-* Drawing map for the first year
-* Remember to setting `par()` for plotting as subplots
-
-```{r}
-par(mfrow=c(4,5), mai= c(0.2, 0.2, 0.2, 0.2))
-for(i in 51:69){
-    mapCountryData(myMap
-                   , nameColumnToPlot=names(myMap)[i]
-                   , catMethod = "categorical"
-                   , colourPalette = colors
-                   , addLegend="FALSE"
-                   )
-}
-```
-
-
-
-
-# Summarize data
-
-```{r}
-# select 1 to 24 vectors
-tdata <- ldata[ ,1:24]
-names(tdata)
-
-# deal with NAs
-tdata[is.na(tdata)] <- 0
-
-# create contigency table by region for matleave_13: data count by length()
-num <- tapply(ldata$matleave_13, ldata$region, length)
-
-# tapply() using mean(), sum(), and sd
-total <- tapply(ldata$matleave_13, ldata$region, mean)
-average <- tapply(ldata$matleave_13, ldata$region, sum)
-sd <- tapply(ldata$matleave_13, ldata$region, sd)
-
-# create data frame for about variables
-res <- data.frame(num, average, total, sd)
-# View(res)
-
-```
-
-
-
-# Grouping data: merge rows by category
-
-```{r}
-byregion <- aggregate(tdata[,6:24], by=list(tdata$region), mean)
-# View(byregion)
-byregion.sd <- aggregate(tdata[,6:24], by=list(tdata$region), sd)
-?aggregate
-
-head(byregion)
-
-```
-
-
-
-
-# Plotting results
-
-```{r}
-# Line ploting the 1st row
-dev.off()
-plot(unlist(byregion[1,]), type="o")
-
-# Line ploting the 2nd~6th rows
-plot(unlist(byregion[2,]), type="o")
-plot(unlist(byregion[3,]), type="o")
-plot(unlist(byregion[4,]), type="o")
-plot(unlist(byregion[5,]), type="o")
-plot(unlist(byregion[6,]), type="o")
-
-
-
-# Using for-loop and par() to plot all graph
-par(mfrow=c(3,2), mai= rep(0.3, 4))
-for (i in 1:6){
-    plot(unlist(byregion[i,-1]), type="o", ylim=c(0, 5))
-	title(byregion[i,1])
-}
-
 ```
 
 

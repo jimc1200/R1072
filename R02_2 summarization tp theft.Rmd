@@ -189,7 +189,7 @@ mosaicplot(res, color=colors, border=0, off = 3,
 		   main="Theft rate of Taipei city (region by hour)")
 ```
 
-# Practice
+# Practice02_2_1
 
 * Check what happens if you swap the time and region in tapply()
 * does it possible to extract month  by substr()?
@@ -203,3 +203,9 @@ df$month <- substr(x, 3, 4) # is this correct? Try to modify it!
 # mosaicplot(res2, color=colors, border=0, off = 3, main="Theft rate of Taipei city (region by hour)")
 ```
 
+# Practice02_2_2
+* Reading maternal leave data
+* Summarize the last year data by world region
+```{r}
+
+```

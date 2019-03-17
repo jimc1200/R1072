@@ -272,8 +272,7 @@ paste0("A", a)		# concatenate
 
 
 
-# Practice
-## Filtering data
+# Practice_01_2_1: Filtering data
 ```{r}
 x.a <- rnorm(1000, 1, 10)
 
@@ -291,7 +290,7 @@ x.a <- rnorm(1000, 1, 10)
 
 
 
-## Practice II: Accessing characters
+# Practice01_2_2: Accessing characters
 ```{r}
 x.b <- c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k")
 
