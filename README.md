@@ -8,11 +8,14 @@
 
 
 # Rundown
-## 0311
-* [Slide R02 data.frame_MaternalLeave_read_xlsx](https://docs.google.com/presentation/d/1evDPBwA9UJ2ubhwiQWK0XYZiaCzUWLKIeRftwMPd-EI/edit?usp=sharing)
-* **Assignment #3** [Drawing world income map](https://github.com/P4CSS/Assignments/blob/master/02_incomemap.md)
+## 0318
 * [Slide R02 read_csv](https://docs.google.com/presentation/d/1vzJL2YU-kWKeM66bLxRFrdXLleWC_mbRFhXi-xkDuqM/edit?usp=sharing)
 * [Slide R03 read_json](https://docs.google.com/presentation/d/15k3cEw3ogBP5Cg5k5RZb0s4kVqoTDKuYJ67OUO043P4/edit?usp=sharing)
+* **Assignment #4** [Drawing world income map](https://github.com/P4CSS/Assignments/blob/master/02_incomemap.md)
+
+## 0311
+* [Slide R02 data.frame_MaternalLeave_read_xlsx](https://docs.google.com/presentation/d/1evDPBwA9UJ2ubhwiQWK0XYZiaCzUWLKIeRftwMPd-EI/edit?usp=sharing)
+
 
 ## 0304
 * [Slide R01 basic](https://docs.google.com/presentation/d/1gvWK2qDZuwR7lRrCLfVwfzrMBt1Dw2yFcG8LeoNgLrA/edit?usp=sharing)
