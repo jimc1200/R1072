@@ -10,7 +10,7 @@
 # Rundown
 ## 0325
 * [Slide R02_3 read_json](https://docs.google.com/presentation/d/15k3cEw3ogBP5Cg5k5RZb0s4kVqoTDKuYJ67OUO043P4/edit?usp=sharing)
-* [Book: R4DS](https://drive.google.com/open?id=1-RABRD1g4ADuJvSE7icP3ZYoWSeb9pKH)
+* [Book: R4DS](https://docs.google.com/document/d/1e7jd9TAi1hppu0di5yZsDXbwoX2oAJ2O4l6UESVJePU/edit?usp=sharing)
 * [Slide R03_1 Crawler designs](https://drive.google.com/open?id=1DCveWYpwlR4xfbySKVoikgdme5W71Pp57vyxSojr7XE)
 * Schedule changes! 04/22 Invited Speech: Geography and Data Science
 
