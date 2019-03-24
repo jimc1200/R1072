@@ -13,6 +13,7 @@
 * [Book: R4DS](https://docs.google.com/document/d/1e7jd9TAi1hppu0di5yZsDXbwoX2oAJ2O4l6UESVJePU/edit?usp=sharing)
 * [Slide R03_1 Crawler designs](https://drive.google.com/open?id=1DCveWYpwlR4xfbySKVoikgdme5W71Pp57vyxSojr7XE)
 * Schedule changes! 04/22 Invited Speech: Geography and Data Science
+* **Assignment #5** Practice 2-3-3 & Practice 3-1-1.
 
 ## 0318
 * [Slide R02 read_csv](https://docs.google.com/presentation/d/1vzJL2YU-kWKeM66bLxRFrdXLleWC_mbRFhXi-xkDuqM/edit?usp=sharing)
