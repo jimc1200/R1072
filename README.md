@@ -8,6 +8,10 @@
 
 
 # Rundown
+## 0401
+* Type III ill-formatted json, Web scraping page by page, ubike map.
+
+
 ## 0325
 * [Slide R02_3 read_json](https://docs.google.com/presentation/d/15k3cEw3ogBP5Cg5k5RZb0s4kVqoTDKuYJ67OUO043P4/edit?usp=sharing)
 * [Book: R4DS](https://docs.google.com/document/d/1e7jd9TAi1hppu0di5yZsDXbwoX2oAJ2O4l6UESVJePU/edit?usp=sharing)
