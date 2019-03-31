@@ -10,14 +10,14 @@
 
 # Rundown
 ## 0408
+* Ill-formatted json 2: [R02_5_read_json_ubike.Rmd](R02_5_read_json_ubike.Rmd) get ubile data
+* Gathering real-time data: [R03_3_crawl_ubike_repeatedly.Rmd](R03_3_crawl_ubike_repeatedly.Rmd)
 * [Slide R03-3 HTML Parser](https://docs.google.com/presentation/d/1xS7jfahx8t7WuYmSbe4qfUjs0L7u3CgaqLADmcerGso/edit?usp=sharing)
 
 ## 0401
 * Ill-formatted json 1: [R02_4_read_json.Rmd](R02_4_read_json.Rmd) safefood data
-* Ill-formatted json 2: [R02_5_read_json_ubike.Rmd](R02_5_read_json_ubike.Rmd) get ubile data
 * Gathering all page data 1: [R03_1_crawl_104.Rmd](R03_1_crawl_104.Rmd)
 * Gathering all page data 2: [R03_2_crawl_Decard.Rmd](R03_2_crawl_Decard.Rmd)
-* Gathering real-time data: [R03_3_crawl_ubike_repeatedly.Rmd](R03_3_crawl_ubike_repeatedly.Rmd)
 
 
 
