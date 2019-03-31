@@ -112,6 +112,8 @@ url_ubike <- "http://data.taipei/youbike"
 ```{r}
 url_104 <- "https://www.104.com.tw/jobs/search/list?ro=0&keyword=%E8%B3%87%E6%96%99%E5%88%86%E6%9E%90&area=6001001000&order=1&asc=0&kwop=7&page=2&mode=s&jobsource=n104bank1"
 
+
+res <- fromJSON(content(GET(url_rent591), "text", encoding = "utf-8"))
 res <- fromJSON(content(GET(url_104), "text", encoding = "utf-8"))
 
 df <- res$data$list
