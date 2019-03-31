@@ -18,7 +18,7 @@
 * Ill-formatted json 1: [R02_4_read_json.Rmd](R02_4_read_json.Rmd) safefood data
 * Gathering all page data 1: [R03_1_crawl_104.Rmd](R03_1_crawl_104.Rmd)
 * Gathering all page data 2: [R03_2_crawl_Decard.Rmd](R03_2_crawl_Decard.Rmd)
-
+* **Assignment #6** Practice 3-2-1.
 
 
 ## 0325
