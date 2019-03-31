@@ -10,6 +10,8 @@
 # Rundown
 ## 0401
 * Type III ill-formatted json, Web scraping page by page, ubike map.
+* [Slide R03-3 HTML Parser](https://docs.google.com/presentation/d/1xS7jfahx8t7WuYmSbe4qfUjs0L7u3CgaqLADmcerGso/edit?usp=sharing)
+
 
 
 ## 0325
