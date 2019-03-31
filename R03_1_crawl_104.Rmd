@@ -1,0 +1,111 @@
+---
+title: "R03_1_crawl_104"
+author: "Jilung Hsieh"
+date: "2019/4/1"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Loading packages
+```{r}
+library(httr)
+library(jsonlite)
+options(stringsAsFactors = F)
+```
+
+
+# Get the first pages
+
+## Must loading the second page
+```{r}
+url2 <- "https://www.104.com.tw/jobs/search/list?ro=0&kwop=7&keyword=%E7%88%AC%E8%9F%B2&order=1&asc=0&page=2&mode=s&jobsource=2018indexpoc"
+
+url3 <- "https://www.104.com.tw/jobs/search/list?ro=0&kwop=7&keyword=%E7%88%AC%E8%9F%B2&order=1&asc=0&page=3&mode=s&jobsource=2018indexpoc"
+
+result2 <- fromJSON(content(GET(url2), "text"))
+df2 <- result2$data$list
+```
+
+## Try to get the first page by modifying url
+```{r}
+url1 <- "https://www.104.com.tw/jobs/search/list?ro=0&kwop=7&keyword=%E7%88%AC%E8%9F%B2&order=1&asc=0&page=1&mode=s&jobsource=2018indexpoc"
+result1 <- fromJSON(content(GET(url1), "text"))
+df1 <- result1$data$list
+```
+
+
+## Combine two results
+```{r}
+all.df <- bind_rows(df1, df2) # will raise error
+# Error in bind_rows_(x, .id) : 
+#   Argument 31 can't be a list containing data frames
+```
+
+## Drop out hierarchical variables
+Preserve numeric or character, drop list of data.frame
+```{r}
+df1$link <- NULL
+df1$tags <- NULL
+df2$link <- NULL
+df2$link <- NULL
+all.df <- bind_rows(df1, df2)
+```
+
+## better method to drop out few hierarchical variables
+```{r}
+df1 <- result1$data$list
+df2 <- result2$data$list
+df1 <- select(df1, -tags, -link)
+df2 <- select(df2, -tags, -link)
+all.df <- bind_rows(df1, df2)
+```
+
+
+# find out the last page number
+```{r}
+last_page_num <- result1$data$totalPage
+# Checking the availability of the last page
+
+# by paste0
+url.last_page <- paste0("https://www.104.com.tw/jobs/search/list?ro=0&kwop=7&keyword=%E7%88%AC%E8%9F%B2&order=1&asc=0&page=", last_page_num, "&mode=s&jobsource=2018indexpoc")
+result.last_page <- fromJSON(content(GET(url.last_page), "text"))
+
+```
+
+# for-loop to get all pages
+```{r}
+for(p in 1:last_page_num){
+    url <- paste0("https://www.104.com.tw/jobs/search/list?ro=0&kwop=7&keyword=%E7%88%AC%E8%9F%B2&order=1&asc=0&page=", p, "&mode=s&jobsource=2018indexpoc")
+    result <- fromJSON(content(GET(url), "text"))
+    temp.df <- select(result$data$list)
+    print(paste(p, nrow(temp.df)))
+}
+```
+
+# combine all data.frame
+```{r}
+url1 <- "https://www.104.com.tw/jobs/search/list?ro=0&kwop=7&keyword=%E7%88%AC%E8%9F%B2&order=1&asc=0&page=1&mode=s&jobsource=2018indexpoc"
+result1 <- fromJSON(content(GET(url1), "text"))
+last_page_num <- result1$data$totalPage
+all.df <- select(result1$data$list, -link, -tags)
+
+for(p in 1:last_page_num){
+    url <- paste0("https://www.104.com.tw/jobs/search/list?ro=0&kwop=7&keyword=%E7%88%AC%E8%9F%B2&order=1&asc=0&page=", p, "&mode=s&jobsource=2018indexpoc")
+    result <- fromJSON(content(GET(url), "text"))
+    temp.df <- select(result$data$list)
+    all.df <- bind_rows(all.df, temp.df)
+    print(paste(p, nrow(all.df)))
+}
+
+```
+
+
+
+
+
+
+
