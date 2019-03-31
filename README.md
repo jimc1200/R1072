@@ -9,9 +9,15 @@
 
 
 # Rundown
-## 0401
-* Type III ill-formatted json, Web scraping page by page, ubike map.
+## 0408
 * [Slide R03-3 HTML Parser](https://docs.google.com/presentation/d/1xS7jfahx8t7WuYmSbe4qfUjs0L7u3CgaqLADmcerGso/edit?usp=sharing)
+
+## 0401
+* Ill-formatted json 1: [R02_4 read json.Rmd](R02_4 read json.Rmd) safefood data
+* Ill-formatted json 2: [R02_5 read json ubike.Rmd](R02_5 read json ubike.Rmd) get ubile data
+* Gathering all page data 1: [R03_1_crawl_104.Rmd](R03_1_crawl_104.Rmd)
+* Gathering all page data 2: [R03_2_crawl_Decard.Rmd](R03_2_crawl_Decard.Rmd)
+* Gathering real-time data: [R03_3_crawl_ubike_repeatedly.Rmd](R03_3_crawl_ubike_repeatedly.Rmd)
 
 
 
