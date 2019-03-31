@@ -1,7 +1,7 @@
 # https://github.com/P4CSS/R1072 
 * [R1072 Syllabus](R1072_Syllabus.md) and [Calendar](https://paper.dropbox.com/doc/R1072-Syllabus--AZd6GlrDOYiIye~0x69c0Yg6Ag-zro9ljIu9v5hRwC6IjAiF#:uid=920393965488318189427929&h2=Calendar)
 * [R1072 Quiz tank](https://docs.google.com/document/d/1yfiup5vOpzjW6cqhNcavAH0TPmQ9LEPY9fth8wwuzXE/edit?usp=sharing)
-* **[Book: R4DS]**(https://docs.google.com/document/d/1e7jd9TAi1hppu0di5yZsDXbwoX2oAJ2O4l6UESVJePU/edit?usp=sharing)
+* **[Book: R4DS](https://docs.google.com/document/d/1e7jd9TAi1hppu0di5yZsDXbwoX2oAJ2O4l6UESVJePU/edit?usp=sharing)**
 * [R1072 Group Reports and team members](https://paper.dropbox.com/doc/R1072-Group-Reports--AXvyCgGTcL5T1NODoHGmqNwMAg-nm06vnUBbKXdiJQZHRKhW)
 * [R1072 Case studies](https://paper.dropbox.com/doc/R1072-Readings--AXvcyB39NbHt0TsoMQ3Uw7~fAg-GE6FqWbMQlTUDITISdaU5)
 * [R1072 Q&A](https://paper.dropbox.com/doc/R1072-QA--AXu~MLhqdA~eZs_aYA67wHWuAg-ldpdmVWiEDBLKyfCTIIhQ): if you encounter any problems or any questions, please describe them here. Or, you can comment others.
