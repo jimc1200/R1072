@@ -18,15 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-# 安裝並加載套件。
-
-* 用下方的code來安裝第三方套件，如果你已經安裝過`tidyverse`，這兩個`httr`和`jsonlie`都有被`tidyverse`套件集合收錄，就不需要另行安裝，只需要加載之。
-
-```
-pkgs <- c("jsonlite", "httr")
-pkgs <- pkgs[!(pkgs %in% installed.packages()[,"Package"])]
-if(length(pkgs)) install.packages(pkgs)
-```
+# (Installing) Loading libraries
 
 ```{r}
 library(httr)
@@ -35,8 +27,7 @@ options(stringsAsFactors = F)
 ```
 
 
-# Case: 1 Air-Quality
-
+# Case 1: Well-formatted Air-Quality
 
 ```{r}
 url <- "http://opendata.epa.gov.tw/ws/Data/REWIQA/?$orderby=SiteName&$skip=0&$top=1000&format=json"
@@ -53,7 +44,7 @@ str(df)
 
 * `jsonlite::fromJSON()` 因為我們用眼睛看就知道他是個JSON格式的檔案，所以用`fromJSON()`這個函式，把用JSON格式編成的字串轉為R的物件，有可能是`data.frame`或`list`。`fromJSON()`預期會把JSON中`[]`的每一個項目轉為一筆筆的資料，然後把`{}`的pair當成column的變數名稱
 
-## GET() 發送請求
+## Step 1: GET() 發送請求
 
 * 向該URL的伺服器發送`GET()` request以取得該檔案。若成功取得，他會回覆一個[HTML status code](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Status)。如果成功的話就是2開頭的數字例如`200 OK`代表該伺服器接受該請求並開始傳回檔案。
 
@@ -64,7 +55,7 @@ class(response)
 ```
 
 
-## httr::content() 將回應資料的轉純文字
+## Step 2: httr::content() 將回應資料的轉純文字
 
 * 回應的資料看他的`class`是一個`response`，但如果看Global Environment看來是個`list`，裡面裝載很多資料，而主要核心的內容在`content`這個欄位，但看來是用`binary code`裝起來的，而不是純文字。
 
@@ -78,7 +69,7 @@ length(text)
 ```
 
 
-## 將JSON格式文字轉為R物件
+## Step 3: 將JSON格式文字轉為R物件
 
 * 最後是將這個`character`轉為R的物件，也就是data.frame或list。注意，此時text是一個`character`，那是我們知道他是用JSON格式編寫的文字檔，就像我們知道.csv檔是用逗號分隔表示法依樣，JSON就是用層層疊疊的`[]{}`記號來表述資料的結構。
 
@@ -90,7 +81,7 @@ df <- fromJSON(text)
 ```
 
 
-# 練習
+# Practice
 
 * 下列這些網路文件應該都是json檔，嘗試把他抓回來看看。
 
@@ -104,7 +95,7 @@ url_ubike <- "http://data.taipei/youbike"
 
 ```
 
-# Case 2: 104: well-formatted by hierarchical
+# Case 2: 104 job search - well-formatted by hierarchical
 
 * 第二類是最常會見到的例子，解出來的資料是個很多階層的`list`，通常一筆資料傳回來時多會附加一些metadata，比方說，一共幾筆資料、下一個資料區塊在哪裡，好讓使用者或者本地端的瀏覽器能夠繼續取得下一筆資料。因此，資料通常會在樹狀節點的某一個子節點。以下面的例子來說，就是存在`res$data$list`這個節點中。
 
@@ -137,7 +128,7 @@ response <- GET(url_104,
 
 
 
-# Case 3: footRumor: ill-formatted
+# Case 3: footRumor - ill-formatted
 
 * 食品闢謠的例子可能是個沒好好編過JSON的單位所編出來的案子，資料很簡單，但卻是一個list裡面有329個data.frame，且每個data.frame只有對腳現有資料，然後每一筆資料就一個data.frame。
 
@@ -151,6 +142,8 @@ class(safefood)
 class(safefood[[1]])
 dim(safefood[[1]])
 # View(safefood[[1]])
+# View(safefood)
+# print(content(GET(url), "text"))
 ```
 
 
@@ -202,71 +195,6 @@ names(safefood.df) <- c('category', 'question', 'answer', 'timestamp')
 
 ```
 
-
-# More-處理時間資料
-
-* 通常時間資料被讀取出來時，比方說`2018-07-01 23:59:59`鐵定是用字串也就是字元的方式存。但我們經常需要把時間當成變數來運算，比方說，我要算出臉書粉絲的逐週按讚數、逐月發展等。這時候，我們需要一個函式把文字格式的時間轉為R的時間物件。
-
-* R 有POSIXlt和POSIXct兩種時間格式。
-https://www.r-bloggers.com/whats-the-difference-between-posixct-and-posixlt/
-
-```
-%Y Year as 2017
-%m Month as decimal number (01–12).
-%d Day of the month as decimal number (01–31).
-
-%H Hours
-%M Minute as 00–59.
-%S Second as 00-59
-
-%w Weekday as decimal number (0–6, Sunday is 0).
-%a Abbreviated weekday name in the current locale
-%b Abbreviated month name in the current locale on this platform
-
-```
-
-
-## Converting time
-```{r}
-# convert strings to time objects by specified format
-safefood.df$ltime <- strptime(safefood.df$timestamp, "%m %e %Y")
-class(safefood.df$ltime)
-	# [1] "POSIXlt" "POSIXt" 
-
-# convert to POSIXct
-safefood.df$ctime <- as.POSIXct(safefood.df$ltime) # POSIXct
-class(safefood.df$ctime)
-	# [1] "POSIXct" "POSIXt"
-class(as.Date("2017-01-01"))
-	# [1] "Date"
-class(as.POSIXct("2017-01-08"))
-	# [1] "POSIXct" "POSIXt"
-class(Sys.time())
-	# [1] "POSIXct" "POSIXt"
-
-```
-
-## Accessing time
-```{r}
-# format time object to string
-time.str <- format(safefood.df$ctime, "%m-%d-%Y")
-class(time.str)
-	# [1] "character"
-# Accessing time
-safefood.df$ltime$mday 		# $wday, $yday, $zone, $hour, $month
-months(safefood.df$ctime)		# weekdays()
-	# [1] "12月" "12月" "1月"  "1月"	
-Sys.setlocale("LC_ALL", "C")
-months(safefood.df$ctime)
-	# [1] "December"  "December"  "January"   "January"   "January"
-sort(safefood.df$ctime)		# sort(safefood.df$ltime)
-start <- proc.time()
-proc.time() - start
-
-```
-
-# ill-formated - ubike
-* See next chapter
 
 
 # Review
