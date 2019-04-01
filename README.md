@@ -15,6 +15,8 @@
 * [Slide R03-3 HTML Parser](https://docs.google.com/presentation/d/1xS7jfahx8t7WuYmSbe4qfUjs0L7u3CgaqLADmcerGso/edit?usp=sharing)
 
 ## 0401
+* [Slide R02_3 read_json](https://docs.google.com/presentation/d/15k3cEw3ogBP5Cg5k5RZb0s4kVqoTDKuYJ67OUO043P4/edit?usp=sharing)
+* [Slide R03_1 Crawler designs](https://drive.google.com/open?id=1DCveWYpwlR4xfbySKVoikgdme5W71Pp57vyxSojr7XE)
 * Ill-formatted json 1: [R02_4_read_json.Rmd](R02_4_read_json.Rmd) safefood data
 * Gathering all page data 1: [R03_1_crawl_104.Rmd](R03_1_crawl_104.Rmd)
 * Gathering all page data 2: [R03_2_crawl_Decard.Rmd](R03_2_crawl_Decard.Rmd)
