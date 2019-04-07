@@ -18,6 +18,7 @@
 
 
 ## 0408
+dplyr, explaining time object or R from trump's case to ubike data scraping strategy, finally dicussing on timestamp itself.
 * [dplyr: Using trump tweets as cases](https://docs.google.com/presentation/d/1XObGWzjldqcXuPQ8o4GyUkHAPSaujuBUyjhE5aYI8vQ/edit?usp=sharing)
 * Ill-formatted json 2: [R02_5_read_json_ubike.Rmd](R02_5_read_json_ubike.Rmd) get ubile data
 * Gathering real-time data: [R03_3_crawl_ubike_repeatedly.Rmd](R03_3_crawl_ubike_repeatedly.Rmd)
