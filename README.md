@@ -8,11 +8,20 @@
 * [All R video for review](https://www.youtube.com/playlist?list=PLK0n8HKZQ_VfJcqBGlcAc0IKoY00mdF1B)
 
 
+
+
 # Rundown
+
+## 0415 
+* [Slide R03-3 HTML Parser](https://docs.google.com/presentation/d/1xS7jfahx8t7WuYmSbe4qfUjs0L7u3CgaqLADmcerGso/edit?usp=sharing)
+
+
+
 ## 0408
+* [dplyr: Using trump tweets as cases](https://docs.google.com/presentation/d/1XObGWzjldqcXuPQ8o4GyUkHAPSaujuBUyjhE5aYI8vQ/edit?usp=sharing)
 * Ill-formatted json 2: [R02_5_read_json_ubike.Rmd](R02_5_read_json_ubike.Rmd) get ubile data
 * Gathering real-time data: [R03_3_crawl_ubike_repeatedly.Rmd](R03_3_crawl_ubike_repeatedly.Rmd)
-* [Slide R03-3 HTML Parser](https://docs.google.com/presentation/d/1xS7jfahx8t7WuYmSbe4qfUjs0L7u3CgaqLADmcerGso/edit?usp=sharing)
+* **Assignment #7** Understanding HTML elements, attributes, XPath and CSS Selector by studying the **Section 3.4** of the book draft and finishing **Practice 3-4-1**. (The dedicated Youtube link to the section will be announced here after 4/9 00:00).  
 
 ## 0401
 * [Slide R02_3 read_json](https://docs.google.com/presentation/d/15k3cEw3ogBP5Cg5k5RZb0s4kVqoTDKuYJ67OUO043P4/edit?usp=sharing)
