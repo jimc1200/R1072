@@ -18,10 +18,9 @@
 
 
 ## 0408
-dplyr, explaining time object or R from trump's case to ubike data scraping strategy, finally dicussing on timestamp itself.
-* [dplyr: Using trump tweets as cases](https://docs.google.com/presentation/d/1XObGWzjldqcXuPQ8o4GyUkHAPSaujuBUyjhE5aYI8vQ/edit?usp=sharing)
-* Ill-formatted json 2: [R02_5_read_json_ubike.Rmd](R02_5_read_json_ubike.Rmd) get ubile data
-* Gathering real-time data: [R03_3_crawl_ubike_repeatedly.Rmd](R03_3_crawl_ubike_repeatedly.Rmd)
+* Ill-formatted json 2: [R02_5_read_json_ubike.Rmd](R02_5_read_json_ubike.Rmd). Getting ubike data and reviewing how to convert ill-formatted json to vector, matrix, then data.frame.
+* [R03_3_crawl_ubike_repeatedly.Rmd](R03_3_crawl_ubike_repeatedly.Rmd). Gathering real-time data and storing it with timestamp. Introducing R time object POSIXct, and converting time to number and string, and converting back again.
+* [dplyr: Using trump tweets as cases](https://docs.google.com/presentation/d/1XObGWzjldqcXuPQ8o4GyUkHAPSaujuBUyjhE5aYI8vQ/edit?usp=sharing)dplyr, explaining time object or R from trump's case to ubike data scraping strategy, finally dicussing on timestamp itself.
 * **Assignment #7** Understanding HTML elements, attributes, XPath and CSS Selector by studying the **Section 3.4** of the book draft and finishing **Practice 3-4-1**. (The dedicated Youtube link to the section will be announced here after 4/9 00:00).  
 
 ## 0401
