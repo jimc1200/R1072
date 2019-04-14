@@ -14,6 +14,7 @@
 
 ## 0415 
 * [Slide R03-3 HTML Parser](https://docs.google.com/presentation/d/1xS7jfahx8t7WuYmSbe4qfUjs0L7u3CgaqLADmcerGso/edit?usp=sharing)
+* **Assignment #8** Crawling web search resutls **Practice 3-5-1**
 
 
 
