@@ -132,15 +132,33 @@ doc   <- read_html(url) # Get and parse the url
 css <- "#main-container > div.r-list-container.action-bar-margin.bbs-screen > div > div.title > a"
 node.a <- html_nodes(doc, css)
 links <- html_attr(node.a, "href")
-class(links) # character
+class(links) 
+# character
+links[1]
+# "/bbs/Boy-Girl/M.1555188846.A.D5F.html"
+
 ```
+
 
 * 除此之外，由於超鏈結少了前面那一段`https://www.ptt.cc`，因此要用`paste0()`自行補上。
 
 ```{r}
 pre <- "https://www.ptt.cc"
 links <- paste0(pre, links)
+links[1]
+# [1] "https://www.ptt.cc/bbs/Boy-Girl/M.1555188846.A.D5F.html"
 ```
+
+```{r}
+pre <- "https://www.ptt.cc"
+url <- "https://www.ptt.cc/bbs/Boy-Girl/index.html"
+links <- url %>% read_html %>% 
+    html_nodes("#main-container div.r-ent div.title a") %>%
+    html_attr("href") %>%
+    paste0(pre, .)
+```
+
+
 
 ## 4.用for-loop打撈多頁的超鏈結並合併
 
@@ -153,6 +171,17 @@ links <- paste0(pre, links)
 * for-loop從3980抓至3993頁
 * 先產生一個`all_links<- c()`用以存放每一頁的超鏈結。
 * for-loop執行的每一圈會抓取到最多20個鏈結，用`all_links <- c(all_links, link)`合併前幾次抓到的鏈結和該圈所抓到的鏈結。
+
+```{r}
+all_links <- c()
+for(p in 3894:3903){
+    url <- sprintf("https://www.ptt.cc/bbs/Boy-Girl/index%s.html", p)
+    # url <- paste0("https://www.ptt.cc/bbs/Boy-Girl/index", p, ".html")
+    all_links <- c(all_links, links)
+}
+```
+
+
 
 ```{r}
 pre <- "https://www.ptt.cc"

@@ -41,7 +41,8 @@ tweets$statusSource[1]
 
 tweets <- trump_tweets_df %>%
 	dplyr::select(id, statusSource, text, created) %>%
-	mutate(source = str_replace(statusSource, ".*Twitter for (.*?)<.*", "\\1")) %>%
+	mutate(source = str_replace(statusSource, 
+	                            ".*Twitter for (.*?)<.*", "\\1")) %>%
   	# extract(statusSource, "source", "Twitter for (.*?)<") %>%
   	filter(source %in% c("iPhone", "Android"))
 
