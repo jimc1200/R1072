@@ -12,11 +12,14 @@
 
 # Rundown
 
+
+## 0422
+* See the draft Section 4.1 Using dplyr to summarize demographic data.
+* **Assignment #9** Summarize educational level by villages **Practice 4-1-2**
+
 ## 0415 
 * [Slide R03-3 HTML Parser](https://docs.google.com/presentation/d/1xS7jfahx8t7WuYmSbe4qfUjs0L7u3CgaqLADmcerGso/edit?usp=sharing)
 * **Assignment #8** Crawling web search resutls **Practice 3-5-1**
-
-
 
 ## 0408
 * Ill-formatted json 2: [R02_5_read_json_ubike.Rmd](R02_5_read_json_ubike.Rmd). Getting ubike data and reviewing how to convert ill-formatted json to vector, matrix, then data.frame.
