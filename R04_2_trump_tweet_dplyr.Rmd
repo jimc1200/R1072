@@ -56,17 +56,18 @@ tweets <- trump_tweets_df %>%
 ```{r}
 library(lubridate)
 library(scales)
-
 tweets %>%
-  count(source, hour = hour(with_tz(created, "EST"))) %>%
-  mutate(percent = n / sum(n)) %>%
-  ggplot() +
-  aes(hour, percent, color = source) +
-  geom_line() +
-  scale_y_continuous(labels = percent_format()) +
-  labs(x = "Hour of day (EST)",
+    count(source, hour = hour(with_tz(created, "EST"))) %>%
+    # group_by(source) %>%
+    mutate(percent = n / sum(n)) %>% 
+    # ungroup() %>%
+    ggplot() +
+    aes(hour, percent, color = source) +
+    geom_line() +
+    scale_y_continuous(labels = percent_format()) +
+    labs(x = "Hour of day (EST)",
        y = "% of tweets",
-       color = "")
+        color = "")
 ```
 
 
@@ -80,7 +81,7 @@ tweets %>%
   count(source, picture) %>%
 	ggplot() + 
 	aes(source, n, fill = picture) + 
-	geom_col(position="dodge")
+	geom_col(position="stack")
 	
 
 
@@ -96,11 +97,6 @@ tweets %>%
 library(tidytext)	# unnest_tokens()
 library(stringr)	# str_detect(), str_replace_all()
 
-test <- tweets %>%
-  	filter(!str_detect(text, '^"')) %>%
-	mutate(text = str_replace_all(text, "https://t.co/[A-Za-z\\d]+|&amp;", "")) %>%
-	unnest_tokens(word, text, token = "regex", pattern = "[^A-Za-z\\d#@']")
-test$word <- tolower(test$word)
 # View(test)
 
 # stop_words$word

@@ -1,0 +1,104 @@
+---
+title: "R03_4"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+library(httr)
+library(rvest) #library(xml2)
+options(stringsAsFactors = F)
+```
+
+
+
+```{r}
+link <- "https://www.ptt.cc/bbs/Boy-Girl/index.html"
+link <- "https://news.ltn.com.tw/search?keyword=%E6%9F%AF%E6%96%87%E5%93%B2&conditions=and&SYear=2019&SMonth=1&SDay=15&EYear=2019&EMonth=4&EDay=15"
+doc <- read_html(link)
+# class(doc)
+
+css = "#main-container .r-ent .title a"
+
+
+node.a <- html_nodes(doc, css)
+
+links <- html_attr(node.a, "href")
+text <- html_text(node.a)
+
+
+pre <- "https://www.ptt.cc"
+links <- paste0(pre, links)
+text
+links
+
+browseURL(links[5])
+
+```
+```{r}
+pre <- "https://www.ptt.cc"
+
+
+all_links <- c()
+
+for(p in 4361:4370){
+    url <- paste0("https://www.ptt.cc/bbs/Boy-Girl/index", p, ".html")
+    print(url)
+    
+    doc <- read_html(url)
+    css = "#main-container .r-ent .title a"
+    node.a <- html_nodes(doc, css)
+    links <- html_attr(node.a, "href")
+    links <- paste0(pre, links)
+        
+    all_links <- c(all_links, links)
+}
+
+
+url <- "https://www.ptt.cc/bbs/Boy-Girl/index4370.html"
+
+
+browseURL(links[5])
+length(all_links)
+```
+
+
+
+
+# Crawling post
+```{r}
+
+library(dplyr)
+posts.df <- data.frame()
+
+for(i in 1:length(all_links)){
+    print(i)
+    url <- all_links[i]
+        
+    doc <- read_html(url)
+    
+    metadata.css <- "#main-content div span.article-meta-value"
+    metadata.nodes <- html_nodes(doc, metadata.css)
+    metadata <- html_text(metadata.nodes)
+    
+    content.xpath <- '//*[@id="main-content"]/text()'
+    content.nodes <- html_nodes(doc, xpath = content.xpath)
+    content <- html_text(content.nodes)
+    content <- paste(content, collapse = "")
+    
+    temp.df <- data.frame(uid = metadata[1],
+                          title = metadata[3],
+                          timestamp = metadata[4],
+                          url = url,
+                          content = content)
+    posts.df <- bind_rows(posts.df, temp.df)
+}
+
+
+
+```
+
