@@ -13,9 +13,12 @@
 # Rundown
 
 
+## 0429
+* See the draft Section 4.1 Using dplyr to summarize demographic data.
+**Assignment #9** Summarize educational level by villages **Practice 4-1-2, Practice 4-1-3** 
+
 ## 0422
 * See the draft Section 4.1 Using dplyr to summarize demographic data.
-* **Assignment #9** Summarize educational level by villages **Practice 4-1-2**
 
 ## 0415 
 * [Slide R03-3 HTML Parser](https://docs.google.com/presentation/d/1xS7jfahx8t7WuYmSbe4qfUjs0L7u3CgaqLADmcerGso/edit?usp=sharing)
