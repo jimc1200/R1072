@@ -5,6 +5,8 @@ date: "2019/4/17"
 output: html_document
 ---
 
+* https://rfrd-tw.github.io/
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
@@ -17,26 +19,51 @@ options(stringsAsFactors = F)
 
 ```{r}
 raw <- read.csv("twdata/opendata107Y030.csv")
+df1 <- raw[-1,]
+df.stat <- df1[,1:4]
+df1$single_age_15down_m <- as.numeric(df1$single_age_15down_m)
+df1$single_age_15_19_m <- as.numeric(df1$single_age_15_19_m)
+m1 <- apply(df1[,5:156], MARGIN = 2, function(x) as.numeric(x))
+df2 <- as.data.frame(m1)
+# 19 age levels * 2 gender levels, * 4 married cond. levels
+# single_19_m(1:19), single_19_f(20:38), married_19_m(39:57), married_19_f(58:76), divorced_19_m(77:95), divorced_19_f(96:114), wisdow_19_m(115:133), wisdow_19_f(134:152)
+?apply
+
+
+
+df.stat$married <- apply(df2[,39:152], 1, function(x) sum(x))
+df.stat$npeople <- apply(df2, 1, function(x) sum(x))
+df.stat$elder <- apply(df2[,c(12:19, 31:38, 50:57, 69:76, 89:95, 97:114, 126:133, 145:152)], 1, function(x) sum(x))
+df.stat$age0 <- apply(df2[,grep("15down", names(df2))], 1, function(x) sum(x))
+df.stat$age15 <- apply(df2[,seq(2, 152, 19)], 1, function(x) sum(x))
+df.stat$age20 <- apply(df2[,seq(3, 152, 19)], 1, function(x) sum(x))
+df.stat$age25 <- apply(df2[,seq(4, 152, 19)], 1, function(x) sum(x))
+df.stat$age30 <- apply(df2[,seq(5, 152, 19)], 1, function(x) sum(x))
+df.stat$elderPerc <- df.stat$elder / df.stat$npeople
+df.stat$marriedPerc <- df.stat$married / df.stat$npeople
+?sequence
 ```
 
 
 ```{r}
-tidy_data <- raw %>%
-    mutate(vname  = paste0(site_id, village)) %>%
+raw <- read.csv("twdata/opendata107Y030.csv") %>%
     slice(-1) %>%
-    gather("key", "num", 5:(ncol(.)-1)) %>% 
+    mutate(vname  = paste0(site_id, village)) %>%
+    select(statistic_yyy, vname, everything())
+
+tidy_data <- raw %>%
+    gather("key", "value", 6:ncol(.)) %>% 
     mutate(sex = str_sub(key, nchar(key))) %>%
-    mutate(key = str_replace(key, "single_age", "single")) %>%
+    separate(key, c("married"), extra = "drop", remove = F) %>%
     mutate(key = str_replace(key, "15down", "0_14")) %>%
     mutate(key = str_replace(key, "100up", "100_105")) %>%
-    separate(key, c("married"), extra = "drop", remove = F) %>%
     mutate(ageRange = str_replace(key, ".+_([0-9]+_[0-9]+)_[fm]", "\\1")) %>%
     separate(ageRange, c("ageLower", "ageUpper"), remove = FALSE) %>%
     mutate(ageLower = as.numeric(ageLower),
            ageUpper = as.numeric(ageUpper),
-           num = as.numeric(num),
+           value = as.numeric(value),
            ageAvg = (ageLower+ageUpper)/2) %>%
-    mutate(elder = ifelse(ageLower >= 65, TRUE, FALSE))
+    mutate(elder = ifelse(ageLower >= 65, TRUE, FALSE)) %>% arrange(vname)
 
 ?str_replace
 ?separate
@@ -49,14 +76,21 @@ village_stat <- tidy_data %>%
     filter(ageLower >= 20) %>%
     group_by(district_code) %>%
     summarise(
-        people = sum(num),
-        elderSum = sum(num[ageLower >= 65]),
-        marriedSum = sum(num[!married %in% ("single")])
+        people = sum(value),
+        elderSum = sum(value[ageLower >= 65]),
+        marriedSum = sum(value[!married %in% ("single")])
         ) %>%
     ungroup() %>%
     mutate(elderPerc = elderSum / people,
            marriedPerc = marriedSum / people)
 ```
+
+```{r}
+village_stat <- village_stat %>%
+    left_join(raw %>% select(statistic_yyy, district_code, vname, site_id, village), 
+              by = "district_code")
+```
+
 
 # Testing
 ```{r}
@@ -71,9 +105,9 @@ town_stat <- tidy_data %>%
     filter(ageLower >= 20) %>%
     group_by(site_id) %>%
     summarise(
-        people = sum(num),
-        elderSum = sum(num[ageLower >= 65]),
-        marriedSum = sum(num[!married %in% ("single")])
+        people = sum(value),
+        elderSum = sum(value[ageLower >= 65]),
+        marriedSum = sum(value[!married %in% ("single")])
         ) %>%
     ungroup() %>%
     mutate(elderPerc = elderSum / people,
@@ -97,26 +131,73 @@ town_stat %>%
 ```{r}
 town_age <- tidy_data %>%
     group_by(site_id, ageLower) %>%
-    summarize(num = sum(num)) %>%
+    summarize(value = sum(value)) %>%
     ungroup() %>%
     filter(ageLower >= 15) %>%
     group_by(site_id) %>%
     arrange(ageLower) %>%
-    mutate(cf = cumsum(num)) %>%
+    mutate(cf = cumsum(value)) %>%
     ungroup() %>%
     arrange(site_id, ageLower)
 
 
-town_age_median <- town_age %>%
+town_age_median <- town_age %>% 
     group_by(site_id) %>%
-    summarize(L = ageLower[(cf - num) <= (max(cf)/2) & cf >= (max(cf)/2)],
-              n2 = (max(cf)/2)) %>%
+    summarize(L = ageLower[(cf - value) <= max(cf)/2 & cf >= max(cf)/2],
+              n = max(cf)
+              ) %>%
     ungroup() %>%
     left_join(town_age, by = c("site_id" = "site_id", "L" = "ageLower")) %>%
-    mutate(B = cf - num, G = num, w = 5) %>%
-    mutate(median = L + (n2-B)/G*w)
+    mutate(B = cf - value, G = value, w = 5) %>%
+    mutate(ageMedian = L + (n/2-B)/G*w)
 
-town_stat <- town_stat %>% left_join(town_age_median %>% select(site_id, median))
+town_stat <- town_stat %>% left_join(town_age_median %>% select(site_id, ageMedian))
 ```
+
+
+# Loading referendum data
+
+
+```{r}
+ref10 <- read_csv("twdata/referendum_byTown/第10案：你是否同意民法婚姻規定應限定在一男一女的結合?.csv")
+
+names(ref10) <- c("no", "county", "town", "n_agree", "n_disagree", "n_valid", "n_invalid", "n_ticket", "n_people", "perc_ticket", "perc_agree", "perc_disagree", "agree_disagree")
+```
+
+```{r}
+town_ref10 <- ref %>%
+    filter(!is.na(town)) %>%
+    mutate(site_id = paste0(county, town)) %>%
+    mutate(perc_ticket = n_ticket / n_people,
+           perc_agree = n_agree / n_ticket,
+           perc_disagree = 1 - perc_agree)
+
+town_stat %>%
+    mutate(site_id = str_replace_all(site_id, "　", "")) %>%
+    left_join(town_ref10) %>%
+    ggplot() + 
+    aes(elderPerc, perc_agree) + 
+    geom_jitter(alpha = 0.5)
+
+
+town_stat %>%
+    mutate(site_id = str_replace_all(site_id, "　", "")) %>%
+    left_join(town_ref10) %>%
+    ggplot() + 
+    aes(elderPerc, perc_agree, size = people) + 
+    geom_jitter(alpha = 0.5, color = "royalblue") +
+    geom_text(aes(label = site_id), check_overlap = TRUE, vjust = 1.5, family="黑體-繁 中黑")
+    
+```
+
+
+# Crawling 7-11 data
+* http://www.ibon.com.tw/retail_inquiry.aspx#gsc.tab=0
+```{r}
+
+```
+
+
+
 
 
